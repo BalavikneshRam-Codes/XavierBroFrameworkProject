@@ -29,8 +29,10 @@ public class Framework {
     private Date frameworkDate;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "frameworkQuestionId")
+    @Column(name = "frameworkQuestion_id")
     private Set<FrameworkQuestion> frameworkQuestions;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "frameworkRatingId")
+    @Column(name = "frameworkRating_id")
     private Set<FrameworkRating> frameworkRatings;
 }

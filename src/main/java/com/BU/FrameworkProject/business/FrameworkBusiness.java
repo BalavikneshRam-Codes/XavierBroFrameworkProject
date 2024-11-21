@@ -1,10 +1,7 @@
 package com.BU.FrameworkProject.business;
 
 import com.BU.FrameworkProject.Entity.*;
-import com.BU.FrameworkProject.repository.FrameworkQuestionRepo;
-import com.BU.FrameworkProject.repository.FrameworkRepo;
-import com.BU.FrameworkProject.repository.QuestionRepo;
-import com.BU.FrameworkProject.repository.RatingRepo;
+import com.BU.FrameworkProject.repository.*;
 import com.BU.FrameworkProject.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,12 +9,12 @@ import io.micrometer.common.util.*;
 
 import java.util.Date;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 public class FrameworkBusiness implements IFrameworkBusiness {
+    @Autowired
+    private UserRepo userRepo;
     @Autowired
     private FrameworkRepo frameworkRepo;
     @Autowired
@@ -43,10 +40,24 @@ public class FrameworkBusiness implements IFrameworkBusiness {
         return frameworkVO;
     }
 
+//    @Override
+//    public FrameworkVO saveFrameworkBO(FrameworkVO frameworkVO) throws Exception {
+//        return null;
+//    }
+
     @Override
     public FrameworkVO findFrameworkBO(Long id) {
         Framework framework = findByIdFramework(id);
         return convertEntityToVO(framework);
+    }
+
+    @Override
+    public String saveUser(UserVo userVo) {
+        User user = new User();
+        user.setUseEmail(userVo.getUser_email());
+        user.setUserName(userVo.getUser_name());
+        userRepo.save(user);
+        return "User Saved successfully";
     }
 
     private Framework findByIdFramework(Long id){

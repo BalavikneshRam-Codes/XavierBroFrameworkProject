@@ -22,5 +22,5 @@ public class FrameworkRating {
     private Rating rating;
 
     @Column(name = "frameworkRating_Score")
-    private Long frameworkRating_Score;
+    private Long frameworkRatingScore;
 }
