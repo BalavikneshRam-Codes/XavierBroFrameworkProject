@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Result</title>
+  </head>
+  <body>
+  <div style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; text-align: center;">
+      <h3 style="color: #333; font-size: 24px; margin: 20px 0;">${userName}</h3>
+      <br/>
+      <h1 style="color: #555; font-size: 32px; margin: 10px 0;">Total Marks is ${TotalMarks} / ${MaxMark}</h1>
+      <h1 style="color: #555; font-size: 32px; margin: 10px 0;">Percentage is ${percentage}%</h1>
+      <img src="${img}" style="width: 400px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 20px;" />
+    </div>
+  </body>
+</html>
